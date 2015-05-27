@@ -1,0 +1,92 @@
+<div>
+    <div class="row">
+        <section class="content">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-xs-4 dropdown" data-ng-controller="countrySelectController2">
+                    <div class="pull-right form-horizontal">
+                        <div class="form-group">
+                            <label for="countrySelected2" class="col-lg-4 col-md-4 col-xs-4 control-label">
+                                Country</label>
+
+                            <div class="col-lg-8 col-md-8 col-xs-8">
+                                <select class="form form-control pull-right selectpicker"
+                                        data-ng-model="countrySelected2"
+                                        data-ng-options="country.value for country in countries"
+                                        name="countrySelected2" id="countrySelected2" required>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4 dropdown" data-ng-controller="playerSelectController">
+                    <div class="pull-right form-horizontal">
+                        <div class="form-group">
+                            <label for="playerSelected" class="col-lg-4 col-md-4 col-xs-4 control-label"> Player</label>
+
+                            <div class="col-lg-8 col-md-8 col-xs-8">
+                                <select class="form form-control pull-right" data-ng-model="playerSelected"
+                                        data-ng-options="player.PlayerName group by player.category for player in players"
+                                        name="playerSelected" id="playerSelected" required>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="row" data-ng-controller="playerStatsController">
+        <div data-ng-if="displayStats">
+            <section class="col-lg-6 col-sm-12 col-xs-12 connectedSortable">
+                <div class="box box-info">
+                    <div class="box-header">
+                        <i class="fa fa-pie-chart"></i>
+
+                        <h3 class="box-title">Number of Medals</h3>
+                    </div>
+                    <div class="box-body no-padding">
+                        <div class="chart" id="playermedalstats" style="height: 300 px; position: relative;">
+                            {{ medalCounts }}
+                        </div>
+                        <!--<div customdonutchart class="chart" mydata={{medalCounts}} id="customBarChart" style="height: 400px; position: relative;">-->
+
+                    </div>
+                </div>
+            </section>
+            <section class="col-lg-6 col-sm-12 col-xs-12 connectedSortable">
+                <div class="box box-info">
+                    <div class="box-header">
+                        <i class="fa fa-wordpress"></i>
+
+                        <h3 class="box-title">Medals Info</h3>
+                    </div>
+                    <div class="box-body no-padding table-responsive" style="overflow: auto">
+                        <table class="table table-striped table-bodered">
+                            <thead class="bg-aqua">
+                            <tr>
+                                <th>athlete</th>
+                                <th>gold</th>
+                                <th>silver</th>
+                                <th>bronze</th>
+                                <th>age</th>
+                                <th>ceremony_date</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr data-ng-repeat="item in playerinfo ">
+                                <td>{{item.athlete }}</td>
+                                <td>{{item.gold | number}}</td>
+                                <td>{{item.silver | number}}</td>
+                                <td>{{item.bronze | number}}</td>
+                                <td>{{item.age | number}}</td>
+                                <td>{{item.ceremony_date | date}}</td>
+                            </tr>
+                            </tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

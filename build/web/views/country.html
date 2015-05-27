@@ -1,0 +1,121 @@
+<div data-ng-controller="countryController">
+    <div class="row">
+        <section class="content">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-xs-4 dropdown" data-ng-controller="countrySelectController1">
+                    <div class="pull-right form-horizontal">
+                        <div class="form-group">
+                            <label for="countrySelected" class="col-lg-4 col-md-4 col-xs-4 control-label"> Country</label>
+
+                            <div class="col-lg-8 col-md-8 col-xs-8">
+                                <select class="form form-control pull-right" data-ng-model="countrySelected"
+                                        data-ng-options="country.value for country in countries"
+                                        name="countrySelected" id="countrySelected" required>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-4 dropdown" data-ng-controller="yearSelectController">
+                    <div class="pull-right form-horizontal">
+                        <div class="form-group">
+                            <label for="yearSelected" class="col-lg-4 col-md-4 col-xs-4 control-label">  Year</label>
+
+                            <div class="col-lg-8 col-md-8 col-xs-8">
+                                <select class="form form-control pull-right" data-ng-model="yearSelected"
+                                        data-ng-options="year.value for year in years"
+                                        name="yearSelected" id="yearSelected" required>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <section class="content">
+        <div class="row">
+            <div class="col-lg-4 col-sm-4 col-xs-12">
+                <!-- small box -->
+                <div class="small-box bg-gold">
+                    <div class="inner">
+                        <h3 class="numbers">{{totalGold}}</h3>
+
+                        <p>Gold Medals</p>
+                    </div>
+                    <div class="icon">
+                        <i>G</i>
+                    </div>
+                    <a href="#/Gold" class="small-box-footer"> More info <i class="fa fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-4 col-xs-12">
+                <div class="small-box bg-gray">
+                    <div class="inner">
+                        <h3 class="numbers">{{totalSilver | number}}</h3>
+
+                        <p>Silver Medals</p>
+                    </div>
+                    <div class="icon">
+                        <i>S</i>
+                    </div>
+                    <a href="#/Silver" class="small-box-footer"> More info <i class="fa fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-4 col-xs-12">
+                <div class="small-box bg-bronze">
+                    <div class="inner">
+                        <h3 class="numbers">{{totalBronze}}</h3>
+
+                        <p>Bronze Medals</p>
+                    </div>
+                    <div class="icon">
+                        <i>B</i>
+                    </div>
+                    <a href="#/Bronze" class="small-box-footer"> More info <i class="fa fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="row">
+        <section class="col-lg-12 col-sm-12 col-xs-12 connectedSortable">
+            <!--<table>-->
+            <!--<tr data-ng-repeat="item in medalsByCategory">-->
+            <!--<td>-->
+            <!--<section class="col-lg-4 col-sm-4 col-xs-4 connectedSortable">-->
+            <!--<div class="box box-info">-->
+            <!--<div class="box-header">-->
+            <!--<i class="fa fa-globe"></i>-->
+            <!--<h3 class="box-title">{{item.category.value}}</h3>-->
+            <!--</div>-->
+            <!--<div class="box-body no-padding">-->
+            <!--<div customdonutchart id='customdonutchart{{$index}}' mydata="{{item.category.data}}"></div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</section>-->
+            <!--</td>-->
+            <!--</tr>-->
+
+            <!--</table>-->
+
+            <div data-ng-repeat="item in medalsByCategory">
+                <section class="col-lg-4 col-sm-4 col-xs-4 connectedSortable">
+                    <div class="box box-info">
+                        <div class="box-header">
+                            <i class="fa fa-pie-chart"></i>
+                            <h3 class="box-title">{{item.category.value}}</h3>
+                        </div>
+                        <div class="box-body no-padding">
+                            <div customdonutchart id='customdonutchart{{$index}}'mydata='{{item.category.data}}'></div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+
+        </section>
+    </div>
+</div>

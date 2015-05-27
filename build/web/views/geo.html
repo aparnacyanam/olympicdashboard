@@ -1,0 +1,61 @@
+
+<div data-ng-controller="geoController">
+    <section class="content">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-xs-12 dropdown ">
+                <div class="pull-right form-horizontal">
+                    <div class="form-group">
+                        <label for="yearSelected" class="col-lg-4 col-md-4 col-xs-4 control-label">Select Year</label>
+
+                        <div class="col-lg-8 col-md-8 col-xs-8">
+                            <select class="form form-control pull-right" data-ng-model="yearSelected"
+                                    data-ng-options="year.value for year in $root.years"
+                                    name="yearSelected" id="yearSelected" required>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="col-lg-6 col-sm-6 col-xs-12 connectedSortable">
+        <div class="box box-gold">
+            <div class="box-header">
+                <i class="fa fa-globe"></i>
+
+                <h3 class="box-title">Gold Medals</h3>
+            </div>
+            <div class="box-body no-padding">
+                <div  olympicsworldmap style="height: 400px; overflow: auto;" mydata="goldMedalsData" type="Gold" colormin="#ffcc66" colormax="#cc8800"></div>
+            </div>
+
+        </div>
+    </section>
+    <section class="col-lg-6 col-sm-6 col-xs-12 connectedSortable">
+        <div class="box box-silver">
+            <div class="box-header">
+                <i class="fa fa-globe"></i>
+
+                <h3 class="box-title">Silver Medals</h3>
+            </div>
+            <div class="box-body no-padding">
+                <div  olympicsworldmap style="height: 400px; overflow: auto;" mydata="SilverMedalsData" type="Silver" colormin="#c6c6c6" colormax="#868686"></div>
+            </div>
+        </div>
+    </section>
+    <section class="col-lg-6 col-sm-6 col-xs-12 connectedSortable">
+        <div class="box box-bronze">
+            <div class="box-header">
+                <i class="fa fa-globe"></i>
+
+                <h3 class="box-title">Bronze Medals</h3>
+            </div>
+            <div class="box-body no-padding">
+                <div  olympicsworldmap style="height: 400px; overflow: auto;" mydata="BronzeMedalsData" type="Bronze" colormin="#e2966f" colormax="#954923"></div>
+            </div>
+
+        </div>
+    </section>
+
+</div>

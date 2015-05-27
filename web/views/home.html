@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<div class="row" data-ng-controller="SummaryByCountryController">
+    <div class="customAnimate">
+        <section class="col-lg-12 col-sm-12 col-xs-12 connectedSortable ">
+            <div class="box box-info">
+                <div class="box-header">
+                    <i class="fa fa-wordpress"></i>
+
+                    <h3 class="box-title">Over Medal Counts</h3>
+                </div>
+                <div class="box-body no-padding">
+                    <jqcloud words="wordCloud" height="400" delay="10" steps="10"
+                             size="{from: 0.09, to:0.02}"></jqcloud>
+                </div>
+                <div class="table-responsive" style="height: 300px; overflow: auto">
+                    <table class="table table-striped table-bodered">
+                        <thead class="bg-aqua">
+                        <tr>
+                            <td><input data-ng-model="countryQuery" placeholder="Search for a country" type="search"
+                                       class="form-control"></td>
+                            <td><input data-ng-model="countQuery" placeholder="Filter by count" type="search"
+                                       class="form-control"></td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr data-ng-repeat="medalinfo in wordCloud | filter : countryQuery | filter : countQueryFilter">
+                            <td>{{medalinfo.text }}</td>
+                            <td>{{medalinfo.weight | number}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="customAnimate">
+        <section class="col-lg-12 col-sm-12 col-xs-12 connectedSortable customAnimate">
+            <div class="box box-info">
+                <div class="box-header">
+                    <i class="fa fa-line-chart"></i>
+
+                    <h3 class="box-title">Overall : Top 10 Countries Trend</h3>
+                </div>
+                <div class="box-body no-padding">
+                    <div class="chart" id="summarychart1" style="height: 400px; position: relative;"></div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+    <div class="customAnimate">
+
+        <section class="col-lg-6 connectedSortable customAnimate">
+            <div class="box box-info">
+                <div class="box-header">
+                    <i class="fa fa-line-chart"></i>
+
+                    <h3 class="box-title">Winter Games : Top 10 Countries Trend</h3>
+                </div>
+                <div class="box-body no-padding">
+                    <div class="chart" id="summarychart2" style="height: 400px; position: relative;">
+                        {{summaryData_winter}}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="customAnimate">
+        <section class="col-lg-6 connectedSortable customAnimate">
+            <div class="box box-info">
+                <div class="box-header">
+                    <i class="fa fa-line-chart"></i>
+
+                    <h3 class="box-title">Summer games : Top 10 Countries Trend</h3>
+                </div>
+                <div class="box-body no-padding">
+                    <div class="chart" id="summarychart3" style="height: 400px; position: relative;">
+                        {{summaryData_summer}}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<!--<Script>-->
+    <!--jQuery(document).ready(function () {-->
+        <!--jQuery('.customAnimate').addClass("hidden").viewportChecker({-->
+            <!--classToAdd: 'visible animated fadeIn',-->
+            <!--offset: 100-->
+        <!--});-->
+    <!--});-->
+<!--</Script>-->

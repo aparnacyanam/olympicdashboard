@@ -1,0 +1,24 @@
+CACHE MANIFEST
+#v1.0 03/05/2015
+CACHE:
+web/lib/C3/c3.css
+web/lib/C3/c3.js
+web/lib/D3/d3.js
+web/lib/D3/d3.js
+web/lib/jqcloud/angular-jqcloud.js
+web/lib/jqcloud/jqcloud.css
+web/lib/jqcloud/jqcloud.js
+web/lib/jvectormap/jquery-jvectormap-1.2.2.css
+web/lib/jvectormap/jquery-jvectormap-1.2.2.min.js
+web/lib/jvectormap/jquery-jvectormap-world-mill-en.js
+web/imgs/background.jpg
+web/imgs/banner.png
+web/imgs/bg.png
+web/imgs/Olympic.png
+web/imgs/OlympicRings.gif
+
+NETWORK:
+*
+
+FALLBACK:
+/offline
